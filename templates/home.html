@@ -8,39 +8,66 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      background: #0d0d0d;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f1f1f1;
     }
     .card {
+      background: rgba(20, 20, 20, 0.9);
       border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      padding: 30px;
+      box-shadow: 0 0 25px rgba(0, 255, 200, 0.2);
+      backdrop-filter: blur(10px);
     }
     h1 {
       font-weight: 700;
-      color: #333;
+      background: linear-gradient(90deg, #00ffe7, #00bfff, #7a00ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .form-label {
+      color: #b3b3b3;
+    }
+    .form-select, .form-control {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #f1f1f1;
+      border-radius: 10px;
+    }
+    .form-select:focus, .form-control:focus {
+      border-color: #00ffe7;
+      box-shadow: 0 0 10px #00ffe7;
+      background: #111;
     }
     .btn-primary {
-      background: #4facfe;
+      background: linear-gradient(135deg, #00ffe7, #7a00ff);
       border: none;
+      padding: 12px;
+      font-weight: 600;
+      border-radius: 12px;
       transition: 0.3s;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.4);
     }
     .btn-primary:hover {
-      background: #00c6ff;
-      transform: translateY(-2px);
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(0, 255, 200, 0.8);
     }
     .result-box {
       margin-top: 20px;
       padding: 15px;
       border-radius: 15px;
-      background: #e8f7ff;
+      background: linear-gradient(135deg, #111, #1a1a1a);
+      border: 1px solid #00ffe7;
       text-align: center;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.4);
     }
     .result-box h2 {
-      color: #0077b6;
+      color: #00ffe7;
       font-weight: bold;
     }
   </style>
@@ -49,9 +76,10 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
-        <div class="card p-4">
+        <div class="card">
           <h1 class="text-center mb-4">📊 Student Exam Performance Predictor</h1>
           <form action="{{ url_for('predict_datapoint') }}" method="post">
+            
             <!-- Gender -->
             <div class="mb-3">
               <label class="form-label">Gender</label>
